@@ -79,10 +79,5 @@ jobs:
         repo: infra-azure
         workflow_file: new_infra.yml           # or .github/workflows/new_infra.yml
         ref: main
-        payload_json: |
-          {
-            "client_code": "${{ steps.parse.outputs.client_code }}",
-            "location":    "${{ steps.parse.outputs.location }}",
-            "issue_api_url":"${{ steps.parse.outputs.issue_api_url }}"
-          }
+        payload_json: {\"client_code\":\"${{ steps.parse.outputs.client_code }}\",\"location\":\"${{ steps.parse.outputs.location }}\",\"issue_api_url\":\"${{ steps.parse.outputs.issue_api_url }}\"}
         token: ${{ secrets.GH_TOKEN }}
