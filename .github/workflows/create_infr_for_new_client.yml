@@ -71,7 +71,7 @@ jobs:
     #     -d "{\"ref\":\"main\",\"inputs\":{\"client_code\":\"$CLIENT_CODE\",\"location\":\"$LOCATION\",\"issue_api_url\":\"$ISSUE_API_URL\"}}"
 
     - name: Dispatch workflow
-      uses: AgentSprint/utils-actions/workflows/dispatches/action.yml
+      uses: AgentSprint/utils-actions/workflows/dispatches@main
       with:
           repo_name: infra-azure
           workflow_name: new_infra
