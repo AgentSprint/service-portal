@@ -1,0 +1,11 @@
+name: New Client Infrastructure creation
+description: request Infrastructure creation for a new Client
+title: "[Client Name] - Infrastructure Creation Request"
+labels: [infrastructure, client]
+body:
+  - type: input
+    id: client_code
+    attributes:
+      label: Client code
+      description: Please provide the code of the new client.
+      placeholder: e.g., ACME
