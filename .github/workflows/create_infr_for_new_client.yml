@@ -6,8 +6,8 @@ on:
 
 permissions:
   contents: read
-  issues: read
-
+  issues: write 
+  
 jobs:
   dispatch-infra:
     # only run for your specific request template title
@@ -76,7 +76,7 @@ jobs:
           } else {
             core.info(`ℹ️ Title already correct, skipping update.`);
           }
-            
+
     - name: Dispatch infra workflow
       env:
         CLIENT_CODE: ${{ steps.parse.outputs.client_code }}
