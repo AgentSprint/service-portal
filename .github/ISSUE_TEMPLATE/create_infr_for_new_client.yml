@@ -9,6 +9,7 @@ body:
       label: Client code
       description: Please provide the code of the new client.
       placeholder: e.g., ACME
+    validations:
       required: true
   - type: input
     id: location
@@ -17,6 +18,8 @@ body:
       description: Please provide the location of the new client.
       placeholder: e.g., New York
       default: Central India
+    validations:
+      required: true
   - type: input
     id: branch_name
     attributes:
@@ -24,4 +27,5 @@ body:
       description: Please provide the branch_name of the infrastructure.
       placeholder: e.g., feature/new-client
       default: main
+    validations:
       required: true
