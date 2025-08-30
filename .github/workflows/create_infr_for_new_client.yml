@@ -55,7 +55,28 @@ jobs:
             core.setOutput('location', location);
             core.setOutput('issue_api_url', context.payload.issue.url);
 
+    - name: Update issue title with client_code
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const clientCode = "${{ steps.parse.outputs.client_code }}".trim();
+          const issue = context.payload.issue;
 
+          // Format: [clientCode] - Infrastructure Creation Request
+          const newTitle = `[${clientCode}] - Infrastructure Creation Request`;
+
+          if (issue.title !== newTitle) {
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issue.number,
+              title: newTitle
+            });
+            core.info(`✅ Title updated to: ${newTitle}`);
+          } else {
+            core.info(`ℹ️ Title already correct, skipping update.`);
+          }
+            
     - name: Dispatch infra workflow
       env:
         CLIENT_CODE: ${{ steps.parse.outputs.client_code }}
