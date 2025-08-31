@@ -25,7 +25,7 @@ body:
     attributes:
       label: Branch Name
       description: Please provide the branch name for the new client.
-      placeholder: e.g., feature/new-client
-      value: feature/new-client
+      placeholder: e.g., feat/new-client
+      value: main
     validations:
       required: true
