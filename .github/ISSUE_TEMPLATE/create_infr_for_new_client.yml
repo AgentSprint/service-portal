@@ -9,17 +9,23 @@ body:
       label: Client code
       description: Please provide the code of the new client.
       placeholder: e.g., ACME
+    validations:
+      required: true
   - type: input
     id: location
     attributes:
       label: Location
       description: Please provide the location of the new client.
       placeholder: e.g., New York
-      default: Central India
+      value: Central India
+    validations:
+      required: true
   - type: input
     id: branch_name
     attributes:
       label: Branch_Name
       description: Please provide the branch name for the new client.
       placeholder: e.g., feature/new-client
-      default: feat/new-client
+      value: feature/new-client
+    validations:
+      required: true
