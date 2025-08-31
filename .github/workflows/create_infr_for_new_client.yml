@@ -39,11 +39,12 @@ jobs:
             return '';
           }
 
+          const client_name = grab('Client Name');
           const client_code = grab('Client code');
           const location    = grab('Location');
           const branch_name   = grab('Branch Name');
 
-          core.setOutput('client_code', client_code);
+          core.setOutput('client_name', client_name);
           core.setOutput('location', location);
           core.setOutput('branch_name', branch_name);
           core.setOutput('issue_api_url', context.payload.issue.url);
@@ -72,6 +73,7 @@ jobs:
 
     - name: Dispatch infra workflow
       env:
+        CLIENT_NAME: ${{ steps.parse.outputs.client_name }}
         CLIENT_CODE: ${{ steps.parse.outputs.client_code }}
         LOCATION: ${{ steps.parse.outputs.location }}
         ISSUE_API_URL: ${{ steps.parse.outputs.issue_api_url }}
@@ -83,5 +85,5 @@ jobs:
         -H "Authorization: Bearer ${{ secrets.GH_TOKEN }}" \
         -H "X-GitHub-Api-Version: 2022-11-28" \
         https://api.github.com/repos/AgentSprint/infra-azure/actions/workflows/new_infra.yml/dispatches \
-        -d "{\"ref\":\"$BRANCH_NAME\",\"inputs\":{\"client_code\":\"$CLIENT_CODE\",\"location\":\"$LOCATION\",\"issue_api_url\":\"$ISSUE_API_URL\"}}"
+        -d "{\"ref\":\"$BRANCH_NAME\",\"inputs\":{\"client_name\":\"$CLIENT_NAME\",\"client_code\":\"$CLIENT_CODE\",\"location\":\"$LOCATION\",\"issue_api_url\":\"$ISSUE_API_URL\"}}"
 

@@ -4,6 +4,14 @@ title: "[Client Name] - Infrastructure Creation Request"
 labels: [infrastructure, client]
 body:
   - type: input
+    id: client_name
+    attributes:
+      label: Client Name
+      description: Please provide the name of the new client.
+      placeholder: e.g., ACME
+    validations:
+      required: true
+  - type: input
     id: client_code
     attributes:
       label: Client code
