@@ -41,18 +41,7 @@ jobs:
 
           const client_code = grab('Client code');
           const location    = grab('Location');
-          let branch_name   = grab('Branch Name') || 'main';
-
-          // sanitize branch (allow a-z0-9, -, _, ., /)
-          branch_name = branch_name.toLowerCase().replace(/[^a-z0-9._/-]/g, '');
-
-          if (!client_code || !location) {
-            core.info('---- DEBUG ISSUE BODY START ----');
-            core.info(body.substring(0, 2000));
-            core.info('---- DEBUG ISSUE BODY END ----');
-            core.setFailed(`Missing parsed values. client_code='${client_code}' location='${location}'`);
-            return;
-          }
+          const branch_name   = grab('Branch Name');
 
           core.setOutput('client_code', client_code);
           core.setOutput('location', location);
