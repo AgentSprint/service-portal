@@ -45,6 +45,7 @@ jobs:
           const branch_name   = grab('Branch Name');
 
           core.setOutput('client_name', client_name);
+          core.setOutput('client_code', client_code);
           core.setOutput('location', location);
           core.setOutput('branch_name', branch_name);
           core.setOutput('issue_api_url', context.payload.issue.url);
