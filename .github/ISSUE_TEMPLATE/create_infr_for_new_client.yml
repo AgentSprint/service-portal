@@ -15,3 +15,9 @@ body:
       label: Location
       description: Please provide the location of the new client.
       placeholder: e.g., New York
+  - type: input
+    id: branch_name
+    attributes:
+      label: Branch_Name
+      description: Please provide the branch name for the new client.
+      placeholder: e.g., feature/new-client
