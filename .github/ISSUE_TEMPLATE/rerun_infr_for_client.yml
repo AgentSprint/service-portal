@@ -1,0 +1,30 @@
+name: Client Infrastructure recreation
+description: request Infrastructure recreation for a Client
+title: "[Client Name] - Infrastructure Recreation Request"
+labels: [infrastructure, client]
+body:
+  - type: input
+    id: client_name
+    attributes:
+      label: Client Name
+      description: Please provide the name of the  client.
+      placeholder: e.g., ACME
+    validations:
+      required: true
+  - type: input
+    id: client_code
+    attributes:
+      label: Client code
+      description: Please provide the code of the client.
+      placeholder: e.g., ACME
+    validations:
+      required: true
+  - type: input
+    id: branch_name
+    attributes:
+      label: Branch Name
+      description: Please provide the branch name for the new client.
+      placeholder: e.g., feat/new-client
+      value: main
+    validations:
+      required: true
